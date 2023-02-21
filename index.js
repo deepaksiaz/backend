@@ -25,8 +25,9 @@ mongoose.connect(url)
 
 //Server Listening
 const port = 4000;
-app.listen(port,'localhost',function(err)
+app.listen(port,function(err)
 {
+
     if(err)
     {
     console.log(err);
@@ -35,7 +36,10 @@ app.listen(port,'localhost',function(err)
     console.log('Express server started at port no : ' + port );
 });
 
+app.get('/',(req, res) => {
 
+      res.send("welcome to Awesome world!!!");
+})
 
 app.get('/data',(req, res) => {
     User.find()
