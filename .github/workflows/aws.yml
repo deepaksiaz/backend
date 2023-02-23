@@ -12,13 +12,11 @@ jobs:
       with:
         node-version: 19.x
     - run: npm install
-    - run: CI=false npm start
+    - run: npm start
     - name: ssh deploy on aws ec2
       uses: easingthemes/ssh-deploy@v2.1.4
       env:
-        SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY }}
-        REMOTE_HOST: ${{ secrets.DEPLOY_HOST }}
-        REMOTE_USER: ${{ secrets.DEPLOY_USER }}
-        REMOTE_PORT: ${{ secrets.DEPLOY_PORT }}
-        SOURCE: "build/"
-        TARGET: ${{ secrets.DEPLOY_TARGET }}
+          SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
+          REMOTE_HOST: ${{ secrets.HOST_DNS }}
+          REMOTE_USER: ${{ secrets.USERNAME }}
+          TARGET: ${{ secrets.TARGET_DIR }}
