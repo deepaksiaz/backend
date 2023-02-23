@@ -38,7 +38,7 @@ app.listen(port,function(err)
 
 app.get('/',(req, res) => {
 
-      res.send("welcome to Awesome world!!!");
+     res.send("welcome to Sana");
 })
 
 app.get('/data',(req, res) => {
